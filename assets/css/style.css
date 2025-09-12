@@ -1,0 +1,1003 @@
+/* Variables CSS */
+:root {
+    --violet-primary: #8A2BE2;
+    --violet-dark: #6B1A9C;
+    --violet-light: #E6D7FF;
+    --violet-pale: #F0E6FF;
+    --mint: #A7E8BD;
+    --cream: #FAFAFA;
+    --white: #FFFFFF;
+    --gray-dark: #333333;
+    --gray-light: #E0E0E0;
+    
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+    --shadow: 0 4px 15px rgba(138, 43, 226, 0.1);
+    --shadow-hover: 0 8px 25px rgba(138, 43, 226, 0.2);
+}
+
+/* Reset et base */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    line-height: 1.6;
+    color: var(--gray-dark);
+    background: var(--cream);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+} 
+
+/*.container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0 2rem;
+ }
+*/
+/* Navigation */
+.navbar {
+    background: var(--white);
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--violet-primary);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.brand-icon { font-size: 1.5rem; }
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--gray-dark);
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--violet-primary);
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--violet-primary);
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
+
+.nav-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--violet-primary);
+    transition: var(--transition);
+}
+
+/* Boutons */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: inherit;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--violet-primary), var(--violet-dark));
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.btn-secondary {
+    background: var(--white);
+    color: var(--violet-primary);
+    border: 2px solid var(--violet-primary);
+}
+
+.btn-secondary:hover {
+    background: var(--violet-primary);
+    color: var(--white);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--violet-primary);
+    border: 2px solid var(--violet-primary);
+}
+
+.btn-outline:hover {
+    background: var(--violet-primary);
+    color: var(--white);
+}
+
+.btn-large { 
+    padding: 1.2rem 2rem; 
+    font-size: 1.1rem; 
+}
+
+.btn-nav { 
+    padding: 0.6rem 1.2rem; 
+    font-size: 0.9rem; 
+}
+
+/* Hero Section */
+.hero {
+    padding: 75px 0 0px;
+    background: linear-gradient(135deg, var(--violet-pale), var(--violet-light));
+    overflow: hidden;
+}
+
+.hero-content {
+    align-items: center;
+    height: 600px;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--violet-dark);
+}
+
+.highlight {
+    color: var(--violet-primary);
+    position: relative;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.hero-visual {
+    position: relative;
+    text-align: center;
+    width: 100%
+}
+
+.hero-emoji {
+    font-size: 8rem;
+    margin-bottom: 2rem;
+    animation: bounce 2s infinite;
+}
+
+.hero-decorations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.decoration {
+    position: absolute;
+    font-size: 2rem;
+    animation: float 3s infinite ease-in-out;
+}
+
+.decoration:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+.decoration:nth-child(2) { top: 20%; right: 15%; animation-delay: 0.5s; }
+.decoration:nth-child(3) { bottom: 20%; left: 20%; animation-delay: 1s; }
+.decoration:nth-child(4) { bottom: 10%; right: 10%; animation-delay: 1.5s; }
+
+/* Sections */
+section {
+    padding: 4rem 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: var(--violet-dark);
+    margin-bottom: 1rem;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+/* Services Grid */
+.services-grid, .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.service-card, .benefit-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.service-card:hover, .benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.service-icon, .benefit-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.service-card h3, .benefit-card h3 {
+    color: var(--violet-dark);
+    margin-bottom: 1rem;
+}
+
+.service-card p, .benefit-card p {
+    margin-bottom: 1.5rem;
+    color: #666;
+}
+
+.service-price {
+    font-weight: 700;
+    color: var(--violet-primary);
+    font-size: 1.1rem;
+	margin-bottom: 1.5rem;
+}
+.service-card {
+    position: relative;
+}
+
+/* Sections spéciales */
+.why-choose-us {
+    background: var(--white);
+}
+
+.final-cta {
+    background: linear-gradient(135deg, var(--violet-primary), var(--violet-dark));
+    color: var(--white);
+    text-align: center;
+}
+
+.final-cta h2 {
+    color: var(--white);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.final-cta p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.cta-actions {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.section-cta {
+    text-align: center;
+}
+
+/* Footer */
+.footer {
+    background: var(--gray-dark);
+    color: var(--white);
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3, .footer-section h4 {
+    color: var(--violet-light);
+    margin-bottom: 1rem;
+}
+
+.footer-section p {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: var(--white);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-section a:hover {
+    color: var(--violet-light);
+}
+
+.footer-contact p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-social {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #555;
+}
+
+.footer-bottom p {
+    opacity: 0.8;
+    margin-bottom: 0.5rem;
+}
+
+/* Animations */
+@keyframes bounce {
+    0%, 20%, 53%, 80%, 100% { transform: translate3d(0,0,0); }
+    40%, 43% { transform: translate3d(0, -20px, 0); }
+    70% { transform: translate3d(0, -10px, 0); }
+    90% { transform: translate3d(0, -4px, 0); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container { padding: 0 1rem; }
+    
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: var(--white);
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 2rem;
+        transition: var(--transition);
+        box-shadow: var(--shadow);
+    }
+    
+    .nav-menu.active { left: 0; }
+    .nav-toggle { display: flex; }
+    
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .hero-text h1 { font-size: 2rem; }
+    .hero-emoji { font-size: 5rem; }
+    
+    .hero-actions {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .services-grid, .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-header h2 { font-size: 2rem; }
+        .service-card.featured,
+    .service-card.featured.image-right {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem 1rem 1rem 1rem;
+    }
+    .service-card .service-image,
+    .service-card.featured.image-right .service-image {
+        position: static;
+        left: auto;
+        right: auto;
+        margin: 0 auto 1rem auto;
+        transform: none;
+    }
+    .cta-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    .why-photo-wrapper {
+        position: static;
+        transform: none;
+        margin: 0 auto 2rem auto;
+        pointer-events: auto;
+        z-index: 1;
+    }
+    .why-photo {
+        width: 110px;
+        height: 110px;
+        border-width: 4px;
+    }
+}
+
+@font-face {
+    font-family: 'Dreaming Outloud';
+    src: url('../fonts/dreaming-outloud-script.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.service-card.featured {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 180px;
+    margin: 2.5rem 0;
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: visible;
+    padding: 2rem 2rem 2rem 4.5rem;
+}
+
+.service-card.featured.image-right {
+    flex-direction: row-reverse;
+    padding: 2rem 4.5rem 2rem 2rem;
+}
+
+.service-card .service-image {
+    position: absolute;
+    top: 50%;
+    left: -60px;
+    transform: translateY(-50%);
+    width: 110px;
+    height: 110px;
+    z-index: 2;
+    background: var(--violet-pale);
+    border-radius: 50%;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.service-card.featured.image-right .service-image {
+    left: auto;
+    right: -60px;
+}
+
+.service-card .service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+/* Décalages désordonnés selon la position dans la liste */
+.service-card.featured:nth-child(1) .service-image {
+    top: 40%;
+    left: -70px;
+    transform: rotate(-8deg) translateY(-50%);
+}
+.service-card.featured.image-right:nth-child(2) .service-image {
+    top: 60%;
+    right: -65px;
+    transform: rotate(7deg) translateY(-50%);
+}
+.service-card.featured:nth-child(3) .service-image {
+    top: 55%;
+    left: -50px;
+    transform: rotate(4deg) translateY(-50%);
+}
+.service-card.featured.image-right:nth-child(4) .service-image {
+    top: 45%;
+    right: -80px;
+    transform: rotate(-6deg) translateY(-50%);
+}
+.service-card.featured:nth-child(5) .service-image {
+    top: 52%;
+    left: -60px;
+    transform: rotate(10deg) translateY(-50%);
+}
+
+.why-choose-us {
+    position: relative;
+}
+
+.benefits-grid {
+    position: relative;
+}
+
+/* why-choose-us : desktop grid 2x2 + aside carré */
+.why-choose-us { padding: 3rem 0; position: relative; }
+
+.why-content {
+    display: grid;
+    grid-template-columns: 1fr 320px; /* cartes | image */
+    gap: 2rem;
+    align-items: stretch;
+}
+
+/* benefits grid : carré 2x2 */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    align-self: stretch;
+}
+
+/* style des cartes */
+.benefit-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;              /* espace entre le titre et le texte */
+    padding: 1.25rem;
+    min-height: 140px;
+    justify-content: center;  /* centre verticalement le contenu */
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+/* aside image (carré) */
+.why-aside {
+    display: flex;
+    align-items: normal;
+    justify-content: center;
+    align-self: center; /* centre la colonne aside dans la grille .why-content */
+    height: 100%;
+    margin: 0;
+}
+
+.why-photo-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    border: 6px solid var(--white);
+    background: var(--violet-pale);
+    margin: 0;
+}
+
+.why-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.benefit-card h3 {
+    margin: 0;
+    font-size: 1.125rem;
+    line-height: 1.2;
+}
+/* paragraphe centré, largeur lisible */
+.benefit-card p {
+    margin: 0;
+    color: var(--text-muted);
+    max-width: 34ch;
+}
+/* Forcer les cartes services une sous l'autre */
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* une colonne = cartes empilées */
+    gap: 2.5rem;                /* espace vertical entre cartes */
+    margin-bottom: 3rem;
+}
+
+.service-card, .service-card.featured {
+    margin: 1.25rem 0;
+    padding: 1rem;                 /* cartes plus compactes */
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+.service-card.featured {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;      /* image prend la hauteur totale */
+    padding: 0;                /* image touche le bord de la carte */
+    margin: 0.75rem 0;
+    min-height: 140px;         /* carte plus compacte (ajuste si besoin) */
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--white);
+    box-shadow: var(--shadow);
+    max-height: 300px;
+}
+
+/* Ajuster la taille du médaillon pour réduire risques de chevauchement */
+.service-card .service-image {
+    width: 110px;
+    height: 110px;
+}
+.service-card.featured .service-image {
+    flex: 0 0 50%;
+    max-width: 50%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 0;
+    display: block;
+    box-shadow: none;
+    position: relative;
+}
+
+/* Image elle-même : rectangulaire, cover, pas d'arrondi */
+.service-card.featured .service-image img,
+.service-card .service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0 !important;
+    display: block;
+}
+
+/* Contenu texte occupe l'autre moitié et a un padding réduit */
+.service-card.featured .service-content {
+    flex: 1 1 50%;
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    text-align: left;
+    max-height: 300px;
+}
+
+/* Suppression des anciennes règles de décalage/rotation */
+.service-card .service-image,
+.service-card.featured .service-image,
+.service-card.featured:nth-child(n) .service-image {
+    transform: none !important;
+}
+.service-card.featured .service-image img,
+.service-card .service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 0 !important;
+    transform: none !important;
+}
+.service-card.featured .service-image {
+    position: relative !important;
+    transform: none !important;
+    left: auto !important;
+    right: auto !important;
+    flex: 0 0 50%;
+    max-width: 50%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 0; /* arrondir côté extérieur plus bas */
+    box-shadow: none;
+}
+.service-card.featured .service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.service-card.featured .service-content {
+    flex: 1 1 50%;
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    text-align: left;
+}
+
+/* Coins externes arrondis selon le côté */
+.service-card.featured.image-left .service-image {
+    border-radius: 10px 0 0 10px;
+}
+.service-card.featured.image-right .service-image {
+    border-radius: 0 10px 10px 0;
+}
+
+.service-card .service-image,
+.service-card.featured .service-image,
+.service-card.featured:nth-child(n) .service-image {
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+}
+/* Fix : images right flush to card edge and remove residual padding */
+.service-card.featured {
+    padding: 0 !important;               /* aucun padding global qui décale les images */
+    overflow: hidden !important;
+    box-shadow: var(--shadow) !important;
+    display: flex !important;
+    align-items: stretch !important;
+}
+
+/* Ensure image column always fills its half and is flush */
+.service-card.featured .service-image {
+    flex: 0 0 50% !important;
+    width: 50% !important;
+    max-width: 50% !important;
+    margin: 0 !important;
+    align-self: stretch !important;
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+}
+
+/* Right-side variant: remove any extra offset, keep outer rounded corner */
+.service-card.featured.image-right {
+    flex-direction: row-reverse !important;
+    padding: 0 !important;
+}
+.service-card.featured.image-right .service-image {
+    margin: 0 !important;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0 !important;
+}
+
+/* Left-side variant: outer rounded corner */
+.service-card.featured.image-left .service-image {
+    border-radius: var(--border-radius) 0 0 var(--border-radius) !important;
+}
+
+/* Make sure content column has no unexpected margins */
+.service-card.featured .service-content {
+    flex: 1 1 50% !important;
+    padding: 1rem 1.25rem !important;
+    margin: 0 !important;
+}
+
+/* Safety: neutralize legacy absolute-positioned image rules */
+.service-card .service-image[style], 
+.service-card .service-image {
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+}
+/* --- Theme & font presets (append) --- */
+/* load webfonts used by presets */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap');
+
+/* Theme classes override CSS variables defined earlier */
+.theme-default { /* keeps existing variables, no changes */ }
+
+.theme-warm {
+  --violet-primary: #FF6B6B;
+  --violet-dark: #D64545;
+  --violet-pale: #FFECEC;
+  --cream: #FFF7F6;
+  --white: #FFFFFF;
+  --gray-dark: #2B2B2B;
+  --muted: #6B6B6B;
+  --shadow: 0 6px 20px rgba(214,69,69,0.08);
+}
+
+.theme-pastel {
+  --violet-primary: #6C63FF;
+  --violet-dark: #5A50E6;
+  --violet-pale: #F3F1FF;
+  --cream: #FEFEFF;
+  --white: #FEFEFF;
+  --gray-dark: #2E2E34;
+  --muted: #7A7A85;
+  --shadow: 0 6px 20px rgba(108,99,255,0.06);
+}
+
+.theme-dark {
+  --violet-primary: #7C5CFF;
+  --violet-dark: #5A3DFF;
+  --violet-pale: #2B2A36;
+  --cream: #0F0F12;
+  --white: #F7F7F8;
+  --gray-dark: #EDEDED;
+  --muted: #CFCFCF;
+  --shadow: 0 6px 20px rgba(0,0,0,0.45);
+  background-color: var(--cream);
+  color: var(--gray-dark);
+}
+
+/* high-contrast for accessibility */
+.theme-contrast {
+  --violet-primary: #000000;
+  --violet-dark: #000000;
+  --violet-pale: #FFFF00;
+  --cream: #FFFFFF;
+  --white: #FFFFFF;
+  --gray-dark: #000000;
+  --muted: #222222;
+  --shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+/* Font classes (apply by adding class on <body>) */
+.font-default { font-family: 'Quicksand', sans-serif; }
+.font-dream { font-family: 'Dreaming Outloud', cursive; } /* requires your local font file already present */
+.font-playfair { font-family: 'Playfair Display', serif; }
+.font-inter { font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+
+/* Small helpers to preview changes without reloading layout */
+body[class*="theme-"] a,
+body[class*="theme-"] .btn-primary {
+  transition: background-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+}
+
+/* Optional brief visual for quick toggle controls (not required) */
+.theme-controls { position: fixed; right: 12px; bottom: 12px; z-index: 3000; display:flex; gap:8px; background:rgba(255,255,255,0.95); padding:8px;border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.08); }
+.theme-controls select{padding:6px;border-radius:6px;border:1px solid #ddd}
+
+/* --- Lots of pastel theme presets --- */
+/* Use setTheme('pastel-rose') etc. Available names listed below. */
+
+.theme-pastel-rose {
+  --violet-primary: #ff9aa2;
+  --violet-dark:    #ff7b86;
+  --violet-pale:    #fff0f1;
+  --cream:          #fff7f8;
+  --white:          #ffffff;
+  --gray-dark:      #2b2b2b;
+  --muted:          #7a6b6b;
+  --shadow:         0 8px 24px rgba(255,123,140,0.06);
+}
+.theme-pastel-mint {
+  --violet-primary: #98f5e1;
+  --violet-dark:    #5ce6c9;
+  --violet-pale:    #f0fffb;
+  --cream:          #fbfffd;
+  --white:          #ffffff;
+  --gray-dark:      #2b3a36;
+  --muted:          #6b7a75;
+  --shadow:         0 8px 24px rgba(92,230,201,0.06);
+}
+.theme-pastel-lavender {
+  --violet-primary: #cdb4ff;
+  --violet-dark:    #b58bff;
+  --violet-pale:    #fbf8ff;
+  --cream:          #fcfbff;
+  --white:          #ffffff;
+  --gray-dark:      #2d2c3a;
+  --muted:          #7a7485;
+  --shadow:         0 8px 24px rgba(181,139,255,0.06);
+}
+.theme-pastel-peach {
+  --violet-primary: #ffd6bf;
+  --violet-dark:    #ffb59a;
+  --violet-pale:    #fff7f3;
+  --cream:          #fffaf8;
+  --white:          #ffffff;
+  --gray-dark:      #3a2b28;
+  --muted:          #7a6b66;
+  --shadow:         0 8px 24px rgba(255,181,154,0.06);
+}
+.theme-pastel-sky {
+  --violet-primary: #bfe9ff;
+  --violet-dark:    #8fd7ff;
+  --violet-pale:    #f4fbff;
+  --cream:          #fbfeff;
+  --white:          #ffffff;
+  --gray-dark:      #24333b;
+  --muted:          #6b7a82;
+  --shadow:         0 8px 24px rgba(143,215,255,0.06);
+}
+.theme-pastel-seafoam {
+  --violet-primary: #b8f2e6;
+  --violet-dark:    #7fe6d1;
+  --violet-pale:    #f7fffb;
+  --cream:          #fbfffe;
+  --white:          #ffffff;
+  --gray-dark:      #23403b;
+  --muted:          #6b7a76;
+  --shadow:         0 8px 24px rgba(127,230,209,0.06);
+}
+.theme-pastel-coral {
+  --violet-primary: #ffd1d1;
+  --violet-dark:    #ffb3b3;
+  --violet-pale:    #fff7f7;
+  --cream:          #fffaf9;
+  --white:          #ffffff;
+  --gray-dark:      #342828;
+  --muted:          #7a6666;
+  --shadow:         0 8px 24px rgba(255,128,128,0.06);
+}
+.theme-pastel-cream {
+  --violet-primary: #fff3d6;
+  --violet-dark:    #ffe0a6;
+  --violet-pale:    #fffaf6;
+  --cream:          #fffefb;
+  --white:          #ffffff;
+  --gray-dark:      #3a3328;
+  --muted:          #7a7566;
+  --shadow:         0 8px 24px rgba(255,224,166,0.06);
+}
+
+/* Soft dark pastel for contrast */
+.theme-pastel-midnight {
+  --violet-primary: #9fa8ff;
+  --violet-dark:    #7a89ff;
+  --violet-pale:    #eef2ff;
+  --cream:          #f4f6ff;
+  --white:          #ffffff;
+  --gray-dark:      #1f2330;
+  --muted:          #9aa0b0;
+  --shadow:         0 8px 24px rgba(122,137,255,0.06);
+}
+
+/* --- Font presets --- */
+.font-quicksand { font-family: 'Quicksand', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+.font-playfair  { font-family: 'Playfair Display', serif; }
+.font-inter     { font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+.font-montserrat{ font-family: 'Montserrat', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+.font-dream     { font-family: 'Dreaming Outloud', cursive; }
+
+/* Quick list for dev: available theme names to pass to setTheme():
+   default, pastel-rose, pastel-mint, pastel-lavender, pastel-peach,
+   pastel-sky, pastel-seafoam, pastel-coral, pastel-cream, pastel-midnight
+   Available font names for setFont(): default, quicksand, playfair, inter, montserrat, dream
+*/

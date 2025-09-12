@@ -1,0 +1,51 @@
+# Baby Planner - Configuration Apache Minimaliste
+# ===============================================
+
+# Activer le module de réécriture
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # URLs propres pour les services
+    RewriteRule ^services/([a-zA-Z0-9-]+)/?$ service-detail.php?slug=$1 [L,QSA]
+    RewriteRule ^services/?$ services.php [L,QSA]
+    
+    # Page à propos
+    RewriteRule ^a-propos/?$ about.php [L]
+    
+    # Contact
+    RewriteRule ^contact/?$ contact.php [L]
+    
+    # Redirection si fichier n'existe pas vers index
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} !^/(admin|assets|config|includes|classes)/
+    RewriteRule ^([^/]+)/?$ index.php [L,QSA]
+</IfModule>
+
+# Protection des fichiers sensibles
+# =================================
+<Files "*.sql">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "*.env">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "config.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Index par défaut
+# ===============
+DirectoryIndex index.php index.html
+
+# Tailles de fichiers
+# ===================
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
+php_value max_execution_time 30
+php_value max_input_vars 1000
