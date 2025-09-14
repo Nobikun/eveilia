@@ -1,0 +1,6 @@
+.git
+.gitignore
+node_modules
+vendor
+docker/php/php.ini
+*.log
